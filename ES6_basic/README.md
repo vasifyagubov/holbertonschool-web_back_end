@@ -1,0 +1,1 @@
+Hello JavaScript and ES6
