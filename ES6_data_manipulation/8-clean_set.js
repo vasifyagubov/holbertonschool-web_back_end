@@ -1,11 +1,12 @@
 /* eslint-disable */
 
 export default function cleanSet(set, startString) {
-    const result = [];
-    for (let value of set) {
-        if (value.slice(0, startString.length) === startString) {
-            result.push(value.slice(startString.length));
-        }
+    if (!startString || typeof startString !== 'string') {
+        return '';
     }
-    return result.join('-');
+
+    return [...set]
+    .filter(value => value.startWith(startString))
+    .map(value => value.slice(startString.length))
+    .join('-')
 }
