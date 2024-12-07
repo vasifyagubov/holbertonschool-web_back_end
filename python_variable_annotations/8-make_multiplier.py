@@ -3,7 +3,7 @@
 import typing
 
 
-def make_multipler(multiplier: float) -> typing.Callable[[float], float]:
+def make_multiplier(multiplier: float) -> typing.Callable[[float], float]:
     """
     Functions
     """
