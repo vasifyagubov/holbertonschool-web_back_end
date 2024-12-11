@@ -38,9 +38,9 @@ class Server:
         return page
         """
         assert isinstance(page, int) and page > 0
-        """Page must be positive"""
+        """Page must be positive integer."""
         assert isinstance(page_size, int) and page_size > 0
-        """Page size must be positive"""
+        """Page size must be positive integer."""
 
         start, end = index_range(page, page_size)
 
