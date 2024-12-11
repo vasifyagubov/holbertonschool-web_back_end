@@ -1,17 +1,18 @@
 #!/usr/bin/env python3
-"""Pagination task for holberton"""
+'''Simple pagination'''
 import csv
 import math
 from typing import List
 
 
 def index_range(page: int, page_size: int) -> tuple:
-    """
-    Berk Pagination
-    """
-    start = (page-1) * page_size
-    end = start + page_size
-    return start, end
+    '''
+    Calculate the start and end index for a range of
+    items in a list for pagination.
+    '''
+    start_index = (page - 1) * page_size
+    end_index = start_index + page_size
+    return start_index, end_index
 
 
 class Server:
@@ -35,18 +36,17 @@ class Server:
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
         """
-        return page
+        Return the appropriate page of the dataset.
         """
         assert isinstance(page, int) and page > 0
-        """Page must be positive integer."""
+        "Page must be a positive integer."
         assert isinstance(page_size, int) and page_size > 0
-        """Page size must be positive integer."""
+        "Page size must be a positive integer."
 
-        start, end = index_range(page, page_size)
+        start_index, end_index = index_range(page, page_size)
 
         dataset = self.dataset()
 
-        if start >= len(dataset):
-            return[]
-        return dataset[start:end]
-
+        if start_index >= len(dataset):
+            return []
+        return dataset[start_index:end_index]
