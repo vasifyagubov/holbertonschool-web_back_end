@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""[Pagination]"""
+"""Pagination task for holberton"""
 import csv
 import math
 from typing import List
