@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-""" 10-main """
+"""Module containing functions for updating topics."""
 
 
 def update_topics(mongo_collection, name, topics):
-    """mongo collection"""
-    mongo_collection.uptade_many({"name": "name"}, {"$set": {"topics": "topics"}})
+    """Updates topics in MongoDB."""
+    mongo_collection.update_many({"name": name}, {"$set": {"topics": topics}})
+    
