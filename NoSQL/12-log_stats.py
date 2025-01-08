@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
-"""Log stats"""
+"""Module for logging stats"""
 from pymongo import MongoClient
 
-methods = ["GET", "POST", "PUT", "PATCH", "DELETE"]
+
+METHODS = ["GET", "POST", "PUT", "PATCH", "DELETE"]
 
 
 def log_stats(mongo_collection, option=None):
-    """Log stats"""
+    """Function to get nginx stats from mongodb"""
     items = {}
     if option:
         value = mongo_collection.count_documents(
@@ -17,7 +18,7 @@ def log_stats(mongo_collection, option=None):
     result = mongo_collection.count_documents(items)
     print(f"{result} logs")
     print("Methods:")
-    for method in methods:
+    for method in METHODS:
         log_stats(nginx_collection, method)
     status_check = mongo_collection.count_documents({"path": "/status"})
     print(f"{status_check} status check")
